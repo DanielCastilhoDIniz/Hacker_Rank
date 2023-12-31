@@ -30,41 +30,47 @@ def print_formatted(number):
 
     def decimal_to_octal(decimal):
         octal = ""
-
         while decimal > 0:
             remainder = decimal % 8
             octal = str(remainder) + octal
             decimal //= 8
-
         return octal if octal else "0"
 
     def decimal_to_hex(decimal):
         hex_digits = "0123456789ABCDEF"
         hexadecimal = ""
-
         while decimal > 0:
             remainder = decimal % 16
             hexadecimal = hex_digits[remainder] + hexadecimal
             decimal //= 16
-
         return hexadecimal
 
     def decimal_to_binario(decimal):
         binario = ""
-        decimal = number
         while decimal > 0:
             remainder = decimal % 2
             binario = str(remainder) + binario
             decimal //= 2
         return binario
-    
-    for i in range(1, number+1):
-        dec = str(i)
-        octal = decimal_to_octal(i)
-        hexa = decimal_to_hex(i)
-        bina = decimal_to_binario(i)
 
-        print(f'{dec}      {octal}  {hexa} {bina}')
+    # Calcula a largura máxima para a formatação
+    width = len("{0:b}".format(number))
+
+    # Loop de 1 até o número fornecido
+    for i in range(1, number+1):
+        # Converte cada número para sua representação e ajusta a largura
+        dec = str(i).rjust(width)
+        octal = decimal_to_octal(i).rjust(width)
+        hexa = decimal_to_hex(i).rjust(width)
+        binario = decimal_to_binario(i).rjust(width)
+
+        # Imprime os números formatados
+        print(f'{dec} {octal} {hexa} {binario}')
+
+# Exemplo de uso com number = 17
+number = 17
+print_formatted(number)
+
 
 
 
@@ -172,3 +178,15 @@ print(print_formatted(17))
 # if __name__ == '__main__':
 #     n = int(input())
 #     print_formatted(n)
+
+
+# def decimal_to_binario(decimal):
+#     binario = ""
+#     # decimal = number
+#     while decimal > 0:
+#         remainder = decimal % 2
+#         binario = str(remainder) + binario
+#         decimal //= 2
+#     return binario
+
+# print(decimal_to_binario(10))
