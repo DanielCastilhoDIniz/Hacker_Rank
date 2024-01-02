@@ -67,11 +67,10 @@ def print_formatted(number):
         # Imprime os números formatados
         print(f'{dec} {octal} {hexa} {binario}')
 
+
 # Exemplo de uso com number = 17
 number = 17
 print_formatted(number)
-
-
 
 
 print(print_formatted(17))
