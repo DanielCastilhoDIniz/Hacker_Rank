@@ -57,5 +57,13 @@ n = int(input())
 integer = list(map(int, input().split()))
 n = all(i > 0 for i in integer)
 if n:
-    result = any(str(number)==str(number)[::-1] for number in integer)
-    print(result)
+    print(any(str(number)==str(number)[::-1] for number in integer))
+else:
+   print (False)
+
+
+# alternativa
+n = int(input())
+integer = list(map(int, input().split()))
+print(all(i > 0 for i in integer) and any(str(number) == str(number)[::-1] for number in integer))
+
