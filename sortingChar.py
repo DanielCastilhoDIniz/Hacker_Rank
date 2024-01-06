@@ -1,10 +1,81 @@
+"""
+sorting_char
+You are given a string .
+ contains alphanumeric characters only.
+Your task is to sort the string  in the following manner:
+
+All sorted lowercase letters are ahead of uppercase letters.
+All sorted uppercase letters are ahead of digits.
+All sorted odd digits are ahead of sorted even digits.
+Input Format
+
+A single line of input contains the string .
+
+Constraints
+
+Output Format
+
+Output the sorted string .
+
+Sample Input
+
+Sorting1234
+Sample Output
+
+ginortS1324
+"""
+
+# solução lenta
+def sorting_char(s):
+    aux = []
+    digits_even = [int(i) for i in s if i.isdigit() and int(i) % 2 == 0]
+    digits_odd = [int(i) for i in s if i.isdigit() and int(i) % 2 != 0]
+    no_digits_upper = [i for i in s if not i.isdigit() and i.isupper()]
+    no_digits_lower = [i for i in s if not i.isdigit() and i.islower()]
+
+    for i in sorted(no_digits_lower):
+        aux.append(i)
+    for i in sorted(no_digits_upper):
+        aux.append(i)
+    for i in digits_odd:
+        aux.append(str(i))
+    for i in digits_even:
+        aux.append(str(i))
+    result = ""
+    for i in aux:
+        result += "".join(str(i))
+
+    return (result)
+
+
+# s = input()
+# print(sorting_char(s))
+
+# pythonico
+def sorting_char(s):
+    # Organiza os caracteres na ordem especificada
+    sorted_chars = sorted(s, key=lambda x: (
+        x.isdigit(), x.isdigit() and int(x) % 2 == 0, x.isupper(), x.lower()))
+
+    # Converte os caracteres ordenados de volta para uma string
+    result = ''.join(sorted_chars)
+
+    return result, sorted_chars
+
+
+print(sorting_char("Sorting1234"))
+# if __name__ == '__main__':
+#     s = input("Digite uma string: ")
+#     print(sorting_char(s))
+
+
 # def sorting_char(s):
 #     return s[::-1]
 
 # print(sorting_char("Sorting123"))
 
 
-s = "Sorting1234"
+# s = "Sorting1234"
 # digits = "0123456789"
 # aux = []
 # # lista mista
@@ -51,46 +122,3 @@ s = "Sorting1234"
 # print((aux))
 # # print (type((liststring[-1])))
 # # print (type((liststring[1])))
-
-
-def sorting_char(s):
-    aux = []
-    digits_even = [int(i) for i in s if i.isdigit() and int(i) % 2 == 0]
-    digits_odd = [int(i) for i in s if i.isdigit() and int(i) % 2 != 0]
-    no_digits_upper = [i for i in s if not i.isdigit() and i.isupper()]
-    no_digits_lower = [i for i in s if not i.isdigit() and i.islower()]
-
-    for i in sorted(no_digits_lower):
-        aux.append(i)
-    for i in sorted(no_digits_upper):
-        aux.append(i)
-    for i in digits_odd:
-        aux.append(str(i))
-    for i in digits_even:
-        aux.append(str(i))
-    result =""
-    for i in aux:
-        result += "".join(str(i))
-
-    return(result)
-
-    
-
-
-# s = input()
-# print(sorting_char(s))
- 
-#pythonico
-def sorting_char(s):
-    # Organiza os caracteres na ordem especificada
-    sorted_chars = sorted(s, key=lambda x: (x.isdigit(), x.isdigit() and int(x) % 2 == 0, x.isupper(), x.lower()))
-
-    # Converte os caracteres ordenados de volta para uma string
-    result = ''.join(sorted_chars)
-
-    return result, sorted_chars
-
-print(sorting_char("Sorting1234"))
-# if __name__ == '__main__':
-#     s = input("Digite uma string: ")
-#     print(sorting_char(s))
