@@ -1,5 +1,4 @@
 
-
 def flippingBits(n):
     binario_32_bits = format(n, '032b')
     new = ""
