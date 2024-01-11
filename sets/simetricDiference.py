@@ -115,7 +115,7 @@ Sample Output
 11
 12
 """
-)
+
 m = input()
 a = (set(map(int, input().split())))
 
