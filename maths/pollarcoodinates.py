@@ -1,12 +1,12 @@
 import cmath
 
-# z = 1 + 2j
-# # z = complex(input())
-# fase = cmath.phase(z)
-# r = abs(z)
+z = 1 + 2j
+# z = complex(input())
+fase = cmath.phase(z)
+r = abs(z)
 
-# print(r)
-# print(fase)
+print(r)
+print(fase)
 
 # a = int(input())
 # b = int(input())
